@@ -5,6 +5,12 @@ namespace Stripe
     public class StripeRedirect : StripeEntity
     {
         /// <summary>
+        /// The failure reason for the redirect. Either user_abort (the customer aborted or dropped out of the redirect flow), declined (the authentication failed or the transaction was declined), or processing_error (the redirect failed due to a technical error). Present only if the redirect status is failed.
+        /// </summary>
+        [JsonProperty("failure_reason")]
+        public string FailureReason { get; set; }
+
+        /// <summary>
         /// The URL you provide to redirect the customer to after they authenticated their payment.
         /// </summary>
         [JsonProperty("return_url")]
